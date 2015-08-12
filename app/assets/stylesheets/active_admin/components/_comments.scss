@@ -1,0 +1,25 @@
+.active_admin_comment {
+  margin-bottom: 25px;
+  max-width: 45em;
+}
+
+.active_admin_comment_meta {
+  color: $text-muted-color;
+  margin-bottom: 5px;
+}
+
+.active_admin_comment_author {
+  color: $primary-color;
+  font-weight: $font-weight-bold;
+  margin: 0;
+}
+
+.active_admin_comment fieldset.inputs {
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+
+  & > ol {
+    padding: 0;
+  }
+}

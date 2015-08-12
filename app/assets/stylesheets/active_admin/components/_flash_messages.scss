@@ -1,0 +1,16 @@
+.flash {
+  background-color: $flash-message-default-background-color;
+  color: $flash-message-default-text-color;
+  font-weight: $flash-message-font-weight;
+  padding: $flash-message-padding;
+
+  &.flash_notice {
+    background-color: $flash-message-notice-background-color;
+    color: $flash-message-notice-text-color;
+  }
+
+  &.flash_error {
+    background-color: $flash-message-error-background-color;
+    color: $flash-message-error-text-color;
+  }
+}

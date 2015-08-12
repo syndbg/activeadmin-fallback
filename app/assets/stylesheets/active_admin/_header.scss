@@ -1,0 +1,94 @@
+.main-navbar {
+  background-color: $navbar-background-color;
+  display: table;
+  padding: 0 $horizontal-page-margin;
+  width: 100%;
+
+  a, a:link, a:visited {
+    color: $navbar-link-color;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: $navbar-link-hover-color;
+  }
+
+  h1,
+  .tabs {
+    display: table-cell;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  h1 {
+    color: $navbar-color;
+    font-size: 1.3em;
+  }
+
+  .tabs {
+    display: table-cell;
+    margin: 0;
+    padding: 0 20px;
+    width: 100%;
+
+    & > li {
+      display: inline-block;
+      position: relative;
+
+      a {
+        display: inline-block;
+        padding: $navbar-padding-vertical $navbar-padding-horizontal;
+        position: relative;
+        transition: background-color 0.15s, color 0.15s;
+      }
+
+      &.current > a {
+        background-color: $navbar-link-active-background-color;
+        color: $navbar-link-active-color;
+      }
+
+      &:hover > a {
+        background-color: $navbar-link-hover-background-color;
+        color: $navbar-link-hover-color;
+      }
+
+      &.has_nested:hover > a {
+        z-index: $z-index-navbar; // so top part of sub menu box-shadow doesn't appear over this link
+      }
+
+      &:hover ul {
+        display: block;
+      }
+
+      ul {
+        background-color: $navbar-background-color;
+        border-radius: 0 0 $navbar-border-radius $navbar-border-radius;
+        display: none;
+        list-style: none;
+        min-width: 175px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: $z-index-navbar;
+
+        li {
+          a {
+            display: block;
+            padding: ($navbar-padding-vertical / 2) $navbar-padding-horizontal;
+          }
+
+          &.current a,
+          a:hover {
+            background-color: $navbar-link-hover-background-color;
+            color: $navbar-link-hover-color;
+          }
+        }
+      }
+    }
+  }
+
+  .utility-nav {
+    padding: 0;
+    text-align: right;
+    white-space: nowrap;
+  }
+}

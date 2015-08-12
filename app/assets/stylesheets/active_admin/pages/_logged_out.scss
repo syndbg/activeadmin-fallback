@@ -1,0 +1,30 @@
+#login {
+  background-color: $panel-background-color;
+  border-radius: $border-radius-base;
+  margin: 70px auto;
+  padding: 15px;
+  width: 500px;
+
+  h2 {
+    font-size: 1.8em;
+  }
+
+  fieldset.inputs {
+    background-color: transparent;
+    margin-bottom: 0;
+    padding: 0;
+
+    input[type=text],
+    input[type=email],
+    input[type=password] {
+      width: 79%;
+    }
+  }
+
+  a {
+    float: right;
+    margin-top: -45px;
+    position: relative;
+    z-index: 2; // to make sure link is always above full width fieldset (e.g. forgot password page)
+  }
+}

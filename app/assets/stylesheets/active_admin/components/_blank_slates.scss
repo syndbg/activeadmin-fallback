@@ -1,0 +1,13 @@
+.blank_slate_container {
+  text-align: center;
+}
+
+.blank_slate {
+  color: $blank-slate-color;
+  font-size: 1.3em;
+}
+
+.admin_dashboard .blank_slate,
+.with_sidebar .blank_slate {
+  margin: 80px 0;
+}

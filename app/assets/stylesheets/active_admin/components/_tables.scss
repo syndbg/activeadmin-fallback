@@ -1,0 +1,110 @@
+table {
+  margin-bottom: 1.4em;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+}
+
+th, td {
+  border-bottom: 1px solid $table-border-color;
+  padding: $table-cell-padding;
+  vertical-align: top;
+}
+
+thead {
+  th {
+    border-bottom: 2px solid $table-border-color;
+    vertical-align: bottom;
+  }
+}
+
+// -------------------------------------- Index Tables
+table.index_table {
+  th {
+    a, a:link, a:visited {
+      color: $text-color;
+      display: block;
+      position: relative;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    &.sortable a {
+      &:after,
+      &:before {
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent;
+        bottom: 100%;
+        content: '';
+        height: 0;
+        position: absolute;
+        right: 0;
+        top: calc(50% - 2px);
+        width: 0;
+      }
+    }
+
+    &.sorted-asc a {
+      padding-right: 11px;
+
+      &:after { // upward pointing arrow
+        border-bottom: 4px solid;
+      }
+    }
+
+    &.sorted-desc a {
+      padding-right: 11px;
+
+      &:before { // downward pointing arrow
+        border-top: 4px solid;
+      }
+    }
+  }
+
+  tbody tr:nth-of-type(odd) {
+    background-color: $table-stripe-color;
+  }
+
+  tbody tr.selected {
+    background-color: $table-selected-color;
+  }
+}
+
+// -------------------------------------- Tables inside Panels
+.panel_contents table {
+  th, td {
+    padding: $table-condensed-cell-padding;
+  }
+}
+
+// -------------------------------------- Resource Attributes Table
+.attributes_table {
+  overflow: hidden;
+}
+
+.attributes_table table {
+  col {
+    border-right: 1px solid $table-border-color;
+
+    &:first-child {
+      border-right: 2px solid $table-border-color;
+    }
+  }
+
+  th {
+    width: 150px;
+  }
+
+  td .empty {
+    color: $text-muted-color;
+    font-size: 0.8em;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+}
+
+.sidebar_section .attributes_table th {
+  width: 50px;
+}

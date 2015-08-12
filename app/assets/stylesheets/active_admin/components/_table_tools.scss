@@ -1,0 +1,56 @@
+.badge {
+  background-color: $badge-background-color;
+  border-radius: $badge-border-radius;
+  color: $badge-color;
+  display: inline-block;
+  font-weight: $badge-font-weight;
+  line-height: $badge-line-height;
+  padding: 3px 7px;
+  vertical-align: baseline;
+}
+
+.table_tools {
+  margin-bottom: 15px;
+}
+
+.table_tools_segmented_control {
+  @include clearfix;
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom; // required so this aligns correctly with .dropdown
+
+  li {
+    float: left;
+
+    & + li a {
+      border-radius: 0;
+      margin-left: -1px;
+    }
+
+    a {
+      position: relative;
+
+      &:hover,
+      &:focus,
+      &:active {
+        z-index: 2;
+      }
+    }
+
+    &:first-child a {
+      border-radius: $border-radius-base 0 0 $border-radius-base;
+    }
+
+    &:last-child a {
+      border-radius: 0 $border-radius-base $border-radius-base 0;
+    }
+
+    &.selected a {
+      background-color: darken($button-default-background-color, 10%);
+      border-color: darken($button-default-border-color, 12%);
+      z-index: 2;
+    }
+  }
+}

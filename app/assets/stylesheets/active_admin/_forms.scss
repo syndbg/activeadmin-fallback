@@ -1,0 +1,264 @@
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=number],
+input[type=url],
+input[type=tel],
+textarea {
+  background-color: $input-background-color;
+  border: 1px solid $input-border-color;
+  border-radius: $input-border-radius;
+  color: $input-color;
+  display: inline-block;
+  outline: none;
+  padding: $padding-base-vertical $padding-base-horizontal;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: calc(80% - #{($padding-base-horizontal * 2) + 2px});
+
+  &:focus {
+    border: 1px solid $input-border-focus-color;
+    box-shadow: 0 0 4px $input-border-focus-color;
+  }
+}
+
+.formtastic {
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .input {
+    margin-bottom: 15px;
+  }
+
+  .label {
+    display: block;
+    float: left;
+    font-weight: $font-weight-bold;
+    width: 20%;
+
+    abbr {
+      border: none;
+      color:  $required-field-marker-color;
+      margin-left: 0.3em;
+    }
+  }
+
+  .inputs {
+    background-color: $panel-background-color;
+    border-radius: $panel-border-radius;
+
+    > ol {
+      padding: 15px;
+    }
+  }
+
+  fieldset {
+    border: 0;
+    margin: 0 0 20px 0;
+    padding: 0;
+    position: relative; // for abosolute positioning sub fieldset legends for choices/fragments
+
+    legend {
+      width: 100%;
+
+      span {
+        background-color: $panel-heading-background-color;
+        border-radius: $panel-border-radius $panel-border-radius 0 0;
+        display: block;
+        font-weight: $font-weight-bold;
+        padding: $panel-heading-padding;
+      }
+    }
+
+    .has_many_container {
+      h3 {
+        border-bottom: 1px solid darken($panel-background-color, 12%);
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  // relative so the absolutely-positioned handle will fit
+  .has_many_fields {
+    border-bottom: 1px solid darken($panel-background-color, 12%);
+    margin-bottom: 15px;
+
+    ol {
+      padding: 0 15px;
+      position: relative;
+    }
+
+    .handle {
+      bottom: 0;
+      cursor: move;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20px;
+
+      &:before {
+        content: '\1801\1801\1801\1801';
+        font-size: 1.8em;
+        position: absolute;
+      }
+    }
+  }
+
+  // Nested Fieldsets and Legends (radio, check boxes and date/time inputs use nested fieldsets)
+
+  legend.label {
+    font-size: inherit;
+    left: 0;
+    position: absolute
+  }
+
+  .choices-group,
+  .fragments-group {
+    float: left;
+    padding: 0 0 0 20%;
+    width: 74%;
+  }
+
+  .choice,
+  .fragment {
+    margin: 0 0 0.5em 0;
+  }
+
+  .fragment {
+    display: inline-block;
+    margin: 0 0.5em 0 0;
+
+    label {
+      display: none;
+    }
+  }
+
+  // BOOLEAN OVERRIDES
+
+  .boolean input,
+  .choice input {
+    display: inline-block; // for IE
+    margin: 0 0.5em 0 0;
+  }
+
+  .boolean label {
+    padding-left: 20%;
+    padding-right: 10px;
+    width: 80%;
+  }
+
+  // HINTS and ERRORS
+
+  .inline-hints,
+  .inline-errors,
+  .errors {
+    margin: 0.3em 0 0 20%;
+  }
+
+  .inline-hints {
+    color: $text-muted-color;
+  }
+
+  .inline-errors, .errors {
+    color: $error-color;
+    font-weight: $font-weight-bold;
+  }
+
+  .errors {
+    background-color: lighten($error-color, 35%);
+    border-radius: $border-radius-base;
+    list-style-type: square;
+    padding: 10px 10px 10px 25px;
+    width: calc(80% - 22px);
+  }
+
+  // Buttons
+
+  .button,
+  .action {
+    display: inline-block;
+    margin-right: 0.5em;
+  }
+}
+
+// -------------------------------------- Sidebar Forms
+
+$sidebar-inner-content-width: $sidebar-width - ($panel-body-padding * 2);
+
+.sidebar_section {
+  select {
+    width: $sidebar-inner-content-width;
+  }
+
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=url],
+  input[type=tel],
+  textarea {
+    width: $sidebar-inner-content-width - ($padding-base-horizontal * 2);
+  }
+}
+
+// -------------------------------------- Filter Forms
+
+$filter-field-seperator-width: 12px;
+
+$side-by-side-filter-input-width: ($sidebar-inner-content-width / 2) - $filter-field-seperator-width;
+$side-by-side-filter-select-width: ($sidebar-inner-content-width / 2);
+
+$date-range-filter-input-width: ($sidebar-inner-content-width / 2) - ($filter-field-seperator-width / 2);
+
+.filter_form_field {
+  margin-bottom: 12px;
+
+  .label {
+    display: block;
+    margin: 0 0 0.18em 0;
+  }
+
+  &.select_and_search {
+    input[type=text] {
+      margin-left: $filter-field-seperator-width;
+      width: $side-by-side-filter-input-width;
+    }
+
+    select {
+      width: $side-by-side-filter-select-width;
+    }
+  }
+
+  &.filter_date_range {
+    input {
+      width: $date-range-filter-input-width;
+
+      & + input {
+        margin-left: 6px;
+      }
+    }
+  }
+}
+
+.filter_check_boxes {
+  .choices {
+    border: none;
+    margin: 0;
+    padding: 0;
+
+    > label {
+      display: block;
+    }
+  }
+}
+
+.filter_form {
+  .buttons > * {
+    margin-right: 5px;
+  }
+}

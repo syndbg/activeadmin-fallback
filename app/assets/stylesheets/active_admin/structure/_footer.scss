@@ -1,0 +1,9 @@
+#footer {
+  font-size: 0.9em;
+  padding: $horizontal-page-margin;
+}
+
+// -------------------------------------- Index Footer (Under Table)
+#index_footer {
+  @include clearfix;
+}

@@ -1,0 +1,121 @@
+.ui-datepicker {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  display: none;
+  width: 12em;
+
+  a,
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+.ui-datepicker-title {
+  font-weight: $font-weight-bold;
+  text-align: center;
+}
+
+.ui-datepicker-header {
+  background-color: $date-picker-header-background-color;
+  border-radius: $border-radius-base $border-radius-base 0 0;
+  color: $date-picker-header-link-color;
+  padding: 5px;
+  position: relative; // for datepicker prev/next buttons
+}
+
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  bottom: 0;
+  color: $date-picker-header-link-color;
+  cursor: pointer;
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 20px; // with top/bottom provide larger hit area for button
+
+  &:focus,
+  &:hover {
+    color: $date-picker-header-link-hover-color;
+  }
+
+  // base for arrows
+  &:after {
+    border-bottom: 4px solid transparent;
+    border-top: 4px solid transparent;
+    content: '';
+    height: 0;
+    position: absolute;
+    top: calc(50% - 4px);
+    width: 0;
+  }
+
+  span {
+    display: none; // hide Next/Prev text
+  }
+}
+
+.ui-datepicker-prev {
+  left: 0;
+
+  &:after {
+    border-right: 5px solid; // arrow pointing left
+    left: calc(50% - 2px); // half of arrow size (border) to horizontally center
+  }
+}
+
+.ui-datepicker-next {
+  right: 0;
+
+  &:after {
+    border-left: 5px solid; // arrow pointing right
+    right: calc(50% - 2px); // half of arrow size (border) to horizontally center
+  }
+}
+
+.ui-datepicker-calendar {
+  background-color: $date-picker-calendar-background-color;
+  border: none;
+  margin-bottom: 0;
+
+  td, th {
+    padding: 0;
+    text-align: center;
+  }
+
+  thead th {
+    border-bottom: none;
+    font-size: 0.9em;
+    font-weight: $font-weight-bold;
+    padding: 2px 0;
+  }
+
+  tbody {
+    td {
+      border: none;
+      height: 22px;
+      width: 22px;
+
+      a {
+        border-radius: $border-radius-base;
+        color: $text-color;
+        display: block;
+        font-size: 0.9em;
+        line-height: 1;
+        padding: 6px 0;
+
+        &:hover {
+          background-color: $date-picker-calendar-link-hover-background-color;
+        }
+
+        &.ui-state-active,
+        &.ui-state-active:hover {
+          background-color: $date-picker-calendar-link-active-background-color;
+        }
+
+        &.ui-state-highlight,
+        &.ui-state-highlight:hover { // today's date
+          background-color: $date-picker-calendar-link-hover-background-color;;
+        }
+      }
+    }
+  }
+}

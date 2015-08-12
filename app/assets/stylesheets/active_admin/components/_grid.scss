@@ -1,0 +1,13 @@
+.index_grid td {
+  border: none;
+}
+
+.columns {
+  @include clearfix;
+  margin-bottom: 10px;
+  padding: 0;
+
+  .column {
+    float: left;
+  }
+}
